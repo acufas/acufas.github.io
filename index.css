@@ -2,12 +2,18 @@ body {
   font-size: 13px;
   font-weight: 400;
   margin: 3px;
+  color: #303030;
   font-family: Helvetica Neue, sans-serif;
   padding: 7px;
 }
 
 a, a:visited {
-  color: #0000EE;
+  text-decoration: none;
+  color: #28f;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 #main {
