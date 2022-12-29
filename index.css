@@ -1,27 +1,15 @@
 body {
-  font-size: 13px;
   font-weight: 400;
-  margin: 3px;
-  color: #303030;
-  font-family: Helvetica Neue, sans-serif;
-  padding: 7px;
-}
-
-ul {
+  margin: 8px;
   padding: 0;
-  margin: 0;
-  list-style: none;
+  max-width: 600px;
 }
 
-li {
-  display: inline;
+p {
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 a, a:visited {
   color: #0000EE;
-}
-
-#main {
-  margin: 0 auto;
-  max-width: 650px;
 }
