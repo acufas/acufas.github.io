@@ -1,5 +1,9 @@
+body {
+  padding: 5px;
+}
+
 #main {
+  margin: 0 auto;
+  line-height: 24px;
   max-width: 42em;
-  margin: 60px auto;
-  line-height: 1.3;
 }
