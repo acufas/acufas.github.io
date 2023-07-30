@@ -1,9 +1,18 @@
-body {
-  padding: 5px;
+img {
+  margin: 15px 0;
+  margin-top: 0;
+  width: 90%;
+}
+
+.post {
+  margin-bottom: 60px;
+}
+
+.footer {
+  text-align: right;
 }
 
 #main {
-  margin: 0 auto;
-  line-height: 24px;
-  max-width: 42em;
+  margin: 30px auto;
+  max-width: 500px;
 }
