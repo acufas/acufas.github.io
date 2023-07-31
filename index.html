@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
   <link rel="stylesheet" href="./index.css">
   <!-- The loading of KaTeX is deferred to speed up page rendering -->
@@ -13,6 +12,44 @@
 </head>
 <body>
   <div id="main">
+    <div class="post">
+      <h2>JavaScript Code for Decimal to Binary Conversion</h2>
+      <p><strong>2023-07-31</strong></p>
+      <p><em>JavaScript program that converts decimal to binary.</em></p>
+
+      <pre>
+        <code>
+          function toBinary (decNumber) {
+            let bitString = '';
+            let number = decNumber;
+            
+            while (number > 0) {
+              bitString += (number % 2).toString();
+              number = Math.floor(number / 2);
+            }
+            
+            return bitString
+              .split('')
+              .reverse()
+              .join('')
+          }
+          
+          console.log(toBinary(2));
+          console.log(toBinary(4));
+          console.log(toBinary(6));
+          console.log(toBinary(44));
+          console.log(toBinary(100));
+          
+          /* Output
+            10
+            100
+            110
+            101100
+            1100100
+          */
+        </code>
+      </pre>
+    </div>
     <div class="post">
       <h2>Binary Numbers</h2>
       <p><strong>2023-07-30</strong></p>

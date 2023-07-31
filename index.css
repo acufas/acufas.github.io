@@ -1,6 +1,20 @@
+pre code {
+  background-color: #eee;
+  border: 1px solid #333;
+  display: block;
+}
+
+code {
+  font-size: 120%;
+}
+
 #main {
   max-width: 600px;
   margin: 30px auto;
+}
+
+.post {
+  margin-bottom: 75px;
 }
 
 .katex {
