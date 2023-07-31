@@ -4,6 +4,14 @@ pre code {
   display: block;
 }
 
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 code {
   font-size: 120%;
 }
@@ -18,5 +26,5 @@ code {
 }
 
 .katex {
-  font-size: 1.17em;
+  font-size: 1em;
 }
