@@ -1,21 +1,259 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
-  <link rel="stylesheet" href="./index.css">
-  <!-- The loading of KaTeX is deferred to speed up page rendering -->
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js" integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O" crossorigin="anonymous"></script>
+<html lang="en">
 
-  <!-- To automatically render math in text elements, include the auto-render extension: -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js" integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF" crossorigin="anonymous"
-      onload="renderMathInElement(document.body);"></script>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js" integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O" crossorigin="anonymous"></script>
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js" integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+    <link rel="stylesheet" href="./index.css">
+    <title>Binary System</title>
 </head>
-<body>
-  <div id="main">
-    <ul>
-      <li><a href="./posts/2023/07/31/javascript_decimal_to_binary.html">2023-07-31.&nbsp;&nbsp;JavaScript Code for Decimal to Binary Conversion</a></li>
-      <li><a href="./posts/2023/07/30/binary_numbers.html">2023-07-30.&nbsp;&nbsp;Binary Numbers</a></li>
-    </ul>
+
+<body id="main">
+  <h2>Binary System</h2>
+
+  <p><strong>2023-07-30</strong></p>
+
+  <p>Notes on decimal &amp; binary number systems.</p>
+
+  <h3>Background</h3>
+
+  <p>The traditional, base-10, or decimal (<em>deci</em>-, from the Latin prefix meaning <em>tenth</em>) system is the
+      primary system we use for expressing numbers. A common hypothesis for why we use this system is the number of
+      fingers on our hands making it easy to count. The specific symbols we use were devised by Indian mathematicians
+      in the 1st and 4th centuries.</p>
+
+  <h3>The Decimal Number System</h3>
+
+  <h4>Digits</h4>
+
+  <p>In the decimal system, there are ten digits we can use to represent any quantity — 0, 1, 2, 3, 4, 5, 6, 7, 8, and
+      9. In math language, we would say that the <em>radix</em> of this numbering system is ten, since we have ten
+      symbols at our disposal.</p>
+
+  <p>Already this gives us a fair amount of power, as any quantity up to nine can be represented with only one digit.
+      As we will soon see, this rule applies more generally:</p>
+
+  <blockquote>
+      <p>The largest symbol of a given number system has a value one less than the radix of that system.</p>
+  </blockquote>
+
+  <p>However, while these values can represent the first ten quantities well, anything larger requires combining
+      digits together. We need a more formal system of defining how we express numbers. The information we have so far
+      already allows us to devise one.</p>
+
+  <p><strong>Definition</strong>:<br>
+      A decimal number is a finite sequence of valid decimal digits, for example <strong>3204</strong>.<sup>1</sup></p>
+
+  <p>\[a_{m}a_{m-1}\ldots a_{0}\]</p>
+
+  <p>With this definition, we can now express a much wider array of numbers:</p>
+
+  <p>\[1, 2, 14, 46, 100, 250, 1550, 10500, 2040015\]</p>
+
+  <h4>Place Values</h4>
+
+  <p>We have a system for writing out decimal numbers, but we're still in the dark about how we determine the
+  <em>quantity</em> these numbers represent. This concept is important to understand as we move forward in this and
+  future blog posts: <strong>the symbols we use to represent quantities and the quantities themselves are
+      distinct</strong>. It will seem pointless as we review decimal numbers, but once we get to binary, it will
+  make a lot more sense.</p>
+
+  <p>The decimal system is a positional notation system, meaning the value each digit contributes to the quantity
+  depends on its position in the number. We'll use the number <strong>4096</strong> to explain this concept.</p>
+
+  <p>In decimal, we label each digit from right-to-left using powers of ten, starting with the rightmost digit. The
+  progression is zero-based, meaning we start from 0, not 1. In 4096, that number is 6, so we label it as
+  follows</p>
+
+  <table>
+    <thead>
+      <th>
+        10<sup>0</sup>
+      </th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          6
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Moving leftward, we simply increment the exponent by one for each place, until we hit the leftmost number</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>10<sup>3</sup></th>
+        <th>10<sup>2</sup></th>
+        <th>10<sup>1</sup></th>
+        <th>10<sup>0</sup></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>4</td>
+        <td>0</td>
+        <td>9</td>
+        <td>6</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Calculating how each digit contributes to the quantity is a simple procedure of multiplying each digit by the label
+      for its position. Then, we add those products together.</p>
+
+  <p>\[4 \cdot 10^3 + 0 \cdot 10^2 + 9 \cdot 10^1 + 6 \cdot 10^0\]</p>
+  <p>\[= 4 \cdot 1000 + 0 \cdot 100 + 9 \cdot 10 + 6 \cdot 1\]</p>
+  <p>\[= 4000 + 0 + 90 + 6\]</p>
+  <p>\[= 4096\]</p>
+
+  <p>So, in summary:</p>
+
+  <ul>
+      <li>The <em>radix</em> of a numbering system is the number of valid unique symbols in that system.</li>
+      <li>A decimal number is a finite sequence of valid decimal digits — 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9.</li>
+      <li>The quantity represented by a decimal number is determined by multiplying each digit by its place value.
+      </li>
+  </ul>
+
+  <h3>Generalizing...</h3>
+
+  <p>What we've constructed/reviewed here for decimal generalizes to more positional number systems. Given a system
+  with radix <em>r</em> and a number expressed with digits \(d_{1}, \ldots, d_{n}\), we can use the following equation to calculate the
+  quantity represented by that number</p>
+
+  <div>
+    \[
+    d_{1}r^{n-1} + d_{2}r^{n-2} + \ldots + d_{0}r^{0}
+    \]      
   </div>
+
+  <h3>The Binary Number System</h3>
+
+  <p>Using everything we've learned so far, how would we build a binary number system — a system with radix 2?</p>
+
+  <p>First, we have to define what the valid digits in this numbering system are. The option that might make the most
+      sense is choosing a subset of the decimal number system, namely the first two: 0 and 1.</p>
+
+  <p>This fits our first rule; the highest quantity we can express using only a single digit is 1, which is one less
+      than the radix 2.</p>
+
+  <p>Now, building up, how would we represent larger quantities like 2, 3, or 4? Using the radix rule, we would build
+      a number like so:</p>
+
+  <div>
+    \[
+    d_{1}2^{n-1} + d_{2}2^{n-2} + \ldots + d_{0}2^{0}
+    \]
+  </div>
+
+  <p>With some thinking, we can see how we can represent the quantity two:</p>
+
+  <div>
+    \[
+    1 \cdot 2^{1} + 0 \cdot 2^{0} = 2
+    \]
+  </div>
+
+  <p>Thus, in binary, the quantity 2 is represented by the sequence <em>10</em>. Here we see the point expressed
+      earlier; the quantity represented by <em>2</em> in decimal and <em>10</em> in binary are the same, but the
+      symbols are distinct relative to the system. This can get confusing if we're ever in a context where we're jumping
+      between number systems. Does <em>10</em> represent the quantity two or ten?</p>
+
+  <p>A way we can get around this is by adding a subscript to a sequence of digits that denotes what system that
+      number is being expressed in. <em>10</em> is ambiguous, but 10<sub>10</sub> is not. Neither is 10<sub>2</sub>.
+  </p>
+
+  <p><strong>Question:</strong> How would we represent the value 4 using binary?</p>
+
+  <p><strong>Question:</strong> How would we represent the value 6 using binary?</p>
+
+  <p><strong>Question:</strong> How would we represent the value 17 using binary?</p>
+
+  <h3>Converting From Decimal to Binary</h3>
+
+  <p>Lastly, we can cover ways of easily converting values between the two systems. While it's possible to sit and
+      think very hard in powers of two, there's a far simpler method.</p>
+
+  <ol>
+      <li>Start with a given number.</li>
+      <li>Divide that starting number by 2.</li>
+      <li>Take the remainder of that division and append it to the left side of the binary number.</li>
+      <li>Take the quotient and repeat this process until you reach 0.</li>
+  </ol>
+
+  <p>Using a number like 44 with this system, we would obtain the following progression.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Division</th>
+        <th>Quotient</th>
+        <th>Remainder</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>44 / 2</td>
+        <td>22</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>22 / 2</td>
+        <td>11</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>11 / 2</td>
+        <td>5</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>5 / 2</td>
+        <td>2</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>2 / 2</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1 / 2</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Building from left-to-right (or in this case, bottom to top), we get 101100. Finally, we can check our work with
+      the radix rule:</p>
+  \[
+    1 \cdot 2^5 + 0 \cdot 2^4 + 1 \cdot 2^3 + 1 \cdot 2^2 + 0 \cdot 2^1 + 0 \cdot 2^0
+  \]
+  \[
+    = 32 + 0 + 8 + 4 + 0 + 0
+  \]
+  \[
+    = 32 + 8 + 4
+  \]
+  \[
+    = 44
+  \]
+  <h3>Footnotes</h3>
+  <p>1. Attentive readers will note that this definition excludes negative numbers and decimal numbers. That's for a
+      future blog post. For now, we're only concerned with positive integers.</p>
 </body>
 </html>

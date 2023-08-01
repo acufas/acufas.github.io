@@ -1,3 +1,9 @@
+body {
+  color: #333;
+  line-height: 1.2;
+  font-size: 1.2em;
+}
+
 pre code {
   background-color: #eee;
   border: 1px solid #333;
@@ -17,12 +23,8 @@ code {
 }
 
 #main {
-  max-width: 600px;
+  max-width: 750px;
   margin: 30px auto;
-}
-
-.post {
-  margin-bottom: 75px;
 }
 
 .katex {
