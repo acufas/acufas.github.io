@@ -2,12 +2,8 @@ body {
   color: #333;
   line-height: 1.2;
   font-size: 1.2em;
-}
-
-pre code {
-  background-color: #eee;
-  border: 1px solid #333;
-  display: block;
+  font-family: 'PT Serif', serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 a, a:visited {
@@ -16,10 +12,6 @@ a, a:visited {
 
 a:hover {
   text-decoration: underline;
-}
-
-code {
-  font-size: 120%;
 }
 
 #main {
