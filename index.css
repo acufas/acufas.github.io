@@ -1,22 +1,5 @@
-body {
-  color: #333;
-  line-height: 1.2;
-  font-size: 1.2em;
-  font-family: 'PT Serif', serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-a, a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 #main {
   max-width: 750px;
-  margin: 30px auto;
 }
 
 .katex {
