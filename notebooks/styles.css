@@ -1,0 +1,22 @@
+.text {
+  width: 34em;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: left;
+
+  p {
+    font-style: italic;
+    margin: 0;
+  }
+}
+
+.bold {
+  font-weight: 800;
+}
+
+ol li {
+  margin-bottom: 1em;
+}
+
